@@ -14,7 +14,7 @@ var client *Client
 func init() {
 
 	s, err := NewServer(
-		"root:@tcp(localhost:3306)/test_techradar?charset=utf8&parseTime=True",
+		"admin:changeme@tcp(localhost:3306)/test_techradar?charset=utf8&parseTime=True",
 		":7000",
 		[]byte("Js Content"),
 		[]byte("Css Content"),
