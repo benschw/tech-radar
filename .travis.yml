@@ -21,7 +21,7 @@ script:
   - mysql -e 'create database test_techradar'
   - go-bindata -o assets.go dist/
   - gox -ldflags "-X main.Version=$TRAVIS_BUILD_NUMBER" -output "tech-radar_{{.OS}}_{{.Arch}}" -osarch="linux/amd64"
-  - gzip techradar_linux_amd64
+  - gzip tech-radar_linux_amd64
   - mkdir -p dist release
   - cp tech-radar_linux_amd64.gz dist/tech-radar_linux_amd64_latest.gz
   - cp tech-radar_linux_amd64.gz release/tech-radar_linux_amd64_$(git describe --tags).gz
