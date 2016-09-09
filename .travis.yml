@@ -1,7 +1,6 @@
 sudo: false
 language: go
 go:
-  - 1.5
   - 1.6
   - 1.7
   - tip
@@ -16,18 +15,10 @@ before_install:
   - go get github.com/golang/lint/golint
   - go get github.com/mitchellh/gox
   - go get github.com/jteeuwen/go-bindata/...
-  - npm install -g bower
-  - npm install -g grunt
-  - mkdir closure
-  - git clone https://github.com/google/closure-library.git closure/closure-library
-  - git clone https://github.com/google/closure-compiler.git closure/closure-compiler
-  - bower install
-  - npm install
+  - make deps
 
 script:
   - mysql -e 'create database test_techradar'
-  - go vet $(go list ./... | grep -v '/vendor/')
-  - go test $(go list ./... | grep -v '/vendor/')
   - go-bindata -o assets.go dist/
   - gox -ldflags "-X main.Version=$TRAVIS_BUILD_NUMBER" -output "tech-radar_{{.OS}}_{{.Arch}}" -osarch="linux/amd64"
   - gzip techradar_linux_amd64
