@@ -22,8 +22,8 @@ script:
   - go-bindata -o assets.go dist/
   - gox -ldflags "-X main.Version=$TRAVIS_BUILD_NUMBER" -output "tech-radar_{{.OS}}_{{.Arch}}" -osarch="linux/amd64"
   - gzip tech-radar_linux_amd64
-  - mkdir -p dist release
-  - cp tech-radar_linux_amd64.gz dist/tech-radar_linux_amd64_latest.gz
+  - mkdir -p dist2 release
+  - cp tech-radar_linux_amd64.gz dist2/tech-radar_linux_amd64_latest.gz
   - cp tech-radar_linux_amd64.gz release/tech-radar_linux_amd64_$(git describe --tags).gz
 
 deploy:
@@ -33,7 +33,7 @@ deploy:
       secure: XuOzbrACI8UqGWVWG3FZ8sgCW+icQTv3svnJaqxZXkxXhwdwYRey4tUru3m9IT4015KwWtuEwYxD6F+sQ0XKihNtO4d04eaoaHKY1rTKhHS4vB53bdW8ZMBxcT2kNGvuTOPW6ijuZKNiFVaql/D7Blx7Q/RTtyYVCHzZ8xFkXNYQBWMD9R5JHhqZnD7uaKH9Q6r0bamgGITM3WPbwV/hz7CoCjsmLjRKTyjai0Ez0Pq8NQ3EaT60PuQEqpelWN7aTne5ktkDuMnvvvEKQs1pGiHclPzNFxngI3VesIEMImURA3n9k9uQO4IHeWqIYagw8bfE4g7hI+iD9sRY0+GvBZMZJVliqUGG1nCNfAVOTx6SYMGeoxyW6NW2P/bbO7S/LAY0nikjrfUKLFjFlRKcg1tT1JERCWRuCdoyv34lHbl32lg92nUmR3MZDTfP6A+O6XIoxgIdJrSy4cjcBqOK4Yp66/foyBZLUgopX4cWqBrguN+HMzyJUquEkE172Li6XHrqEHSEciQF+umNfD8ZknR0n1yYHpIP2n4oAuxnMmf8MBG5UfGkiLTIYUtqoEPGZPVYid5f386plAXGaZpr9XhrxlDSLjyg/8/5qEfLMh5KsO9cB5xspK8dSw7UfOuOyDFAf8DmjMCKSJrc7I2/7vu33/Vmdw5LWiN/zdSiN0k=
     bucket: dl.fligl.io
     skip_cleanup: true
-    local-dir: dist
+    local-dir: dist2
     upload-dir: artifacts/tech-radar
     acl: public_read
   - provider: s3

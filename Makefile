@@ -23,5 +23,5 @@ build:
 
 
 run:
-	BIND="0.0.0.0:8000" DB="root:@tcp(localhost:3306)/techradar?charset=utf8&parseTime=True" ./tech-radar migrate
-	BIND="0.0.0.0:8000" DB="root:@tcp(localhost:3306)/techradar?charset=utf8&parseTime=True" ./tech-radar
+	BIND="0.0.0.0:8000" DB="admin:changeme@tcp(localhost:3306)/techradar?charset=utf8&parseTime=True" ./tech-radar migrate
+	BIND="0.0.0.0:8000" DB="admin:changeme@tcp(localhost:3306)/techradar?charset=utf8&parseTime=True" ./tech-radar
