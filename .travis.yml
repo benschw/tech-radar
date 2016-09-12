@@ -9,8 +9,7 @@ services:
   - mysql
 
 env:
-  - PATH=/home/travis/gopath/bin:$PATH
-  - DB_USER=travis
+  - PATH=/home/travis/gopath/bin:$PATH DB_USER=travis DB_PASS=
 
 before_install:
   - go get github.com/golang/lint/golint
