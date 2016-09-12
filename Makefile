@@ -11,8 +11,8 @@ deps:
 
 
 test:
-	go vet $(go list ./... | grep -v '/vendor/')
-	go test -vv $(go list ./... | grep -v '/vendor/')
+	go list ./... | grep -v '/vendor/' | xargs go vet
+	go list ./... | grep -v '/vendor/' | xargs go test
 
 
 build:
