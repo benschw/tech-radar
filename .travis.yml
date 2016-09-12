@@ -19,6 +19,8 @@ before_install:
 
 script:
   - mysql -e 'create database test_techradar'
+  - mysql -e "GRANT ALL ON *.* TO admin@'%' IDENTIFIED BY 'changeme' WITH GRANT OPTION; FLUSH PRIVILEGES"
+  - make test
   - go-bindata -o assets.go dist/
   - gox -ldflags "-X main.Version=$TRAVIS_BUILD_NUMBER" -output "tech-radar_{{.OS}}_{{.Arch}}" -osarch="linux/amd64"
   - cp tech-radar_linux_amd64 tech-radar
