@@ -24,7 +24,7 @@ func init() {
 	}
 
 	s, err := NewServer(
-		fmt.Sprintf("%s:%@tcp(localhost:3306)/test_techradar?charset=utf8&parseTime=True", dbUser, dbPass),
+		fmt.Sprintf("%s:%s@tcp(localhost:3306)/test_techradar?charset=utf8&parseTime=True", dbUser, dbPass),
 		":7000",
 		[]byte("Js Content"),
 		[]byte("Css Content"),

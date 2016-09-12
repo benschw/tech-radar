@@ -12,7 +12,7 @@ deps:
 
 test:
 	go vet $(go list ./... | grep -v '/vendor/')
-	go test -v $(go list ./... | grep -v '/vendor/')
+	go test -vv $(go list ./... | grep -v '/vendor/')
 
 
 build:

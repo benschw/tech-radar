@@ -19,7 +19,8 @@ before_install:
 
 script:
   - mysql -e 'create database test_techradar'
-  - make test
+  - go vet $(go list ./... | grep -v '/vendor/')
+  - go test -v $(go list ./... | grep -v '/vendor/')
   - go-bindata -o assets.go dist/
   - gox -ldflags "-X main.Version=$TRAVIS_BUILD_NUMBER" -output "tech-radar_{{.OS}}_{{.Arch}}" -osarch="linux/amd64"
   - cp tech-radar_linux_amd64 tech-radar
