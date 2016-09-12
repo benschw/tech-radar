@@ -1,7 +1,9 @@
 package radar
 
 import (
+	"fmt"
 	"log"
+	"os"
 	"testing"
 	"time"
 
@@ -13,8 +15,16 @@ var client *Client
 
 func init() {
 
+	dbUser := os.Getenv("DB_USER")
+	dbPass := os.Getenv("DB_PASS")
+
+	if dbUser == "" {
+		dbUser = "admin"
+		dbPass = "changeme"
+	}
+
 	s, err := NewServer(
-		"travis:@tcp(localhost:3306)/test_techradar?charset=utf8&parseTime=True",
+		fmt.Sprintf("%s:%@tcp(localhost:3306)/test_techradar?charset=utf8&parseTime=True", dbUser, dbPass),
 		":7000",
 		[]byte("Js Content"),
 		[]byte("Css Content"),
