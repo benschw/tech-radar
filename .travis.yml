@@ -21,7 +21,7 @@ deploy:
       secure: XuOzbrACI8UqGWVWG3FZ8sgCW+icQTv3svnJaqxZXkxXhwdwYRey4tUru3m9IT4015KwWtuEwYxD6F+sQ0XKihNtO4d04eaoaHKY1rTKhHS4vB53bdW8ZMBxcT2kNGvuTOPW6ijuZKNiFVaql/D7Blx7Q/RTtyYVCHzZ8xFkXNYQBWMD9R5JHhqZnD7uaKH9Q6r0bamgGITM3WPbwV/hz7CoCjsmLjRKTyjai0Ez0Pq8NQ3EaT60PuQEqpelWN7aTne5ktkDuMnvvvEKQs1pGiHclPzNFxngI3VesIEMImURA3n9k9uQO4IHeWqIYagw8bfE4g7hI+iD9sRY0+GvBZMZJVliqUGG1nCNfAVOTx6SYMGeoxyW6NW2P/bbO7S/LAY0nikjrfUKLFjFlRKcg1tT1JERCWRuCdoyv34lHbl32lg92nUmR3MZDTfP6A+O6XIoxgIdJrSy4cjcBqOK4Yp66/foyBZLUgopX4cWqBrguN+HMzyJUquEkE172Li6XHrqEHSEciQF+umNfD8ZknR0n1yYHpIP2n4oAuxnMmf8MBG5UfGkiLTIYUtqoEPGZPVYid5f386plAXGaZpr9XhrxlDSLjyg/8/5qEfLMh5KsO9cB5xspK8dSw7UfOuOyDFAf8DmjMCKSJrc7I2/7vu33/Vmdw5LWiN/zdSiN0k=
     bucket: dl.fligl.io
     skip_cleanup: true
-    local-dir: dist2
+    local-dir: build/pkg/latest
     upload-dir: artifacts/tech-radar
     acl: public_read
   - provider: s3
@@ -30,7 +30,7 @@ deploy:
       secure: XuOzbrACI8UqGWVWG3FZ8sgCW+icQTv3svnJaqxZXkxXhwdwYRey4tUru3m9IT4015KwWtuEwYxD6F+sQ0XKihNtO4d04eaoaHKY1rTKhHS4vB53bdW8ZMBxcT2kNGvuTOPW6ijuZKNiFVaql/D7Blx7Q/RTtyYVCHzZ8xFkXNYQBWMD9R5JHhqZnD7uaKH9Q6r0bamgGITM3WPbwV/hz7CoCjsmLjRKTyjai0Ez0Pq8NQ3EaT60PuQEqpelWN7aTne5ktkDuMnvvvEKQs1pGiHclPzNFxngI3VesIEMImURA3n9k9uQO4IHeWqIYagw8bfE4g7hI+iD9sRY0+GvBZMZJVliqUGG1nCNfAVOTx6SYMGeoxyW6NW2P/bbO7S/LAY0nikjrfUKLFjFlRKcg1tT1JERCWRuCdoyv34lHbl32lg92nUmR3MZDTfP6A+O6XIoxgIdJrSy4cjcBqOK4Yp66/foyBZLUgopX4cWqBrguN+HMzyJUquEkE172Li6XHrqEHSEciQF+umNfD8ZknR0n1yYHpIP2n4oAuxnMmf8MBG5UfGkiLTIYUtqoEPGZPVYid5f386plAXGaZpr9XhrxlDSLjyg/8/5qEfLMh5KsO9cB5xspK8dSw7UfOuOyDFAf8DmjMCKSJrc7I2/7vu33/Vmdw5LWiN/zdSiN0k=
     bucket: dl.fligl.io
     skip_cleanup: true
-    local-dir: release
+    local-dir: build/pkg/release
     upload-dir: artifacts/tech-radar
     acl: public_read
     on:
@@ -38,6 +38,6 @@ deploy:
   - provider: releases
     api_key:
       secure: LV7EmnPkPnhBO2kngsmpPRpgc2HXDOSNI0h1NdFOB4u9j0cnotcqibJEvBvj2Vn8a8MlcUi17ZDL1ypupiTdD/slC4egF/or6oRRtEpr9n08QinTxNFZBHq0c1Zza4tX+6eiP0xDlmcJWwMk6ou6SXdINndPOYTjSPkQxxFblCsmQfDCEkzRMrsMhgurOmhuZCBgSjoH3S6+8dh6Ve7SfsZzyub5QlKIluIJXuOXQ0MC/VejUkqGufrfHI950flv9A59C6a+ypHEp/seCI75lGtfMBqB+BAo6comBV68sW8nvcV4Q0igvLfRWcr3EXn9dLDEx3Myw+Uz6BlD9dSwis9QQLqH2XFmrUZD8n0XPvafQS+Oenmy95SiyaAIdoSCmmQnXcBXoZ9dcllnxE7iZFWaF+MV2vaOEe5Fs5zCNNfN2cVYBE7hZ/aB7GaqvBMNWoMEg84X8GyyzhkXQD84Vm46P4xP0o70r8CayNCrIDERaUc/UikB6he7uCYv78aA9y9t0T4rNqvKlZCGVnQxsNHz2vJG/nyV/8F9m9yEhFWZG6gBu+m/27fcAe0AzCEsYPhZvAqFK3hm+rb0EKeyDlEasNEshGNU5LLgHOqZdtOlc1SZSDfuT7h1E/ivQkXj1TBW3SBkiAJcTn/rvPWyr0pnQv3X2UBbcFrI2JNVvp4=
-    file: tech-radar_linux_amd64.gz
+    file: build/tech-radar_linux_amd64.gz
     on:
       repo: benschw/tech-radar

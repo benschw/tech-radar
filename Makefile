@@ -4,8 +4,7 @@ all: clean deps test build
 
 
 clean: 
-	rm -rf tech-radar dist tech-radar-ui_latest.tar.gz* dist2 release
-	rm -rf tech-radar_linux_amd64_latest.zip tech-radar_linux_amd64.gz
+	rm -rf build/ dist/
 
 deps:
 	go get github.com/golang/lint/golint
@@ -25,14 +24,14 @@ build:
 	go build
 
 package:
-	gox -ldflags "-X main.Version=$(TRAVIS_BUILD_NUMBER)" -output "tech-radar_{{.OS}}_{{.Arch}}" -osarch="linux/amd64"
-	cp tech-radar_linux_amd64 tech-radar
-	gzip tech-radar_linux_amd64
-	zip tech-radar_linux_amd64_latest.zip tech-radar
-	mkdir -p dist2 release
-	cp tech-radar_linux_amd64_latest.zip dist2/
-	cp tech-radar_linux_amd64.gz dist2/tech-radar_linux_amd64_latest.gz
-	cp tech-radar_linux_amd64.gz release/tech-radar_linux_amd64_$(VERSION).gz
+	mkdir -p build/pkg/latest build/pkg/release
+	gox -ldflags "-X main.Version=$(TRAVIS_BUILD_NUMBER)" -output "build/tech-radar_{{.OS}}_{{.Arch}}" -osarch="linux/amd64"
+	cp build/tech-radar_linux_amd64 build/tech-radar
+	gzip build/tech-radar_linux_amd64
+	zip build/tech-radar_linux_amd64_latest.zip build/tech-radar
+	mv build/tech-radar_linux_amd64_latest.zip build/pkg/latest/
+	cp build/tech-radar_linux_amd64.gz build/pkg/latest/tech-radar_linux_amd64_latest.gz
+	cp build/tech-radar_linux_amd64.gz build/pkg/release/tech-radar_linux_amd64_$(VERSION).gz
 
 ci: clean deps test build package
 
