@@ -40,4 +40,4 @@ deploy:
       secure: LV7EmnPkPnhBO2kngsmpPRpgc2HXDOSNI0h1NdFOB4u9j0cnotcqibJEvBvj2Vn8a8MlcUi17ZDL1ypupiTdD/slC4egF/or6oRRtEpr9n08QinTxNFZBHq0c1Zza4tX+6eiP0xDlmcJWwMk6ou6SXdINndPOYTjSPkQxxFblCsmQfDCEkzRMrsMhgurOmhuZCBgSjoH3S6+8dh6Ve7SfsZzyub5QlKIluIJXuOXQ0MC/VejUkqGufrfHI950flv9A59C6a+ypHEp/seCI75lGtfMBqB+BAo6comBV68sW8nvcV4Q0igvLfRWcr3EXn9dLDEx3Myw+Uz6BlD9dSwis9QQLqH2XFmrUZD8n0XPvafQS+Oenmy95SiyaAIdoSCmmQnXcBXoZ9dcllnxE7iZFWaF+MV2vaOEe5Fs5zCNNfN2cVYBE7hZ/aB7GaqvBMNWoMEg84X8GyyzhkXQD84Vm46P4xP0o70r8CayNCrIDERaUc/UikB6he7uCYv78aA9y9t0T4rNqvKlZCGVnQxsNHz2vJG/nyV/8F9m9yEhFWZG6gBu+m/27fcAe0AzCEsYPhZvAqFK3hm+rb0EKeyDlEasNEshGNU5LLgHOqZdtOlc1SZSDfuT7h1E/ivQkXj1TBW3SBkiAJcTn/rvPWyr0pnQv3X2UBbcFrI2JNVvp4=
     file: build/tech-radar_linux_amd64.gz
     on:
-      repo: benschw/tech-radar
+      tags: true
